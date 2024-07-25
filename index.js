@@ -28,7 +28,7 @@ let items = [
 ];
 
 app.get("/", async(req, res) => {
-    const databaseTasks = await db.query("SELECT * FROM tasks");
+    const databaseTasks = await db.query("SELECT * FROM tasks ORDER BY id");
     const items = databaseTasks.rows.map(row => ({id:row.id, title: row.title}));
     // console.log(items)
     
